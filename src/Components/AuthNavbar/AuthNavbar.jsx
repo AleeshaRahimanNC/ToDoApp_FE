@@ -1,16 +1,32 @@
 import React from "react";
 import "./AuthNavbar.css";
-
+import ToDoIcon from "@assets/ToDo_icon.png";
 
 function AuthNavbar() {
   return (
-
-
-    <nav class="navbar navbar-expand-lg  fixed-top navbar-scrolled">
+    <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong fixed-top">
+      {/* <nav class="navbar navbar-expand-lg  fixed-top navbar-scrolled"> */}
       <div class="container-fluid nav-wrapper">
-        <a class="navbar-brand" href="#">
-          ToDoApp
-        </a>
+        <div className="brand-icon">
+          <img className="navbar-icon" src={ToDoIcon} alt="" />
+          <a class="navbar-brand" href="#">
+            ToDo
+          </a>
+        </div>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <a className="nav-link" aria-current="page" href="#">
+              Home
+            </a>
+            <a className="nav-link" href="#">
+              Login
+            </a>
+            <a className="nav-link" href="#">
+              Register
+            </a>
+          </div>
+        </div>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -22,22 +38,8 @@ function AuthNavbar() {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link" aria-current="page" href="#">
-              Home
-            </a>
-            <a class="nav-link" href="#">
-              Login
-            </a>
-            <a class="nav-link" href="#">
-              Register
-            </a>
-          </div>
-        </div>
       </div>
     </nav>
-   
   );
 }
 
