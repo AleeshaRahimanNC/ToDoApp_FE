@@ -3,8 +3,19 @@ import "./AuthHome.css";
 import AuthNavbar from "../../Components/AuthNavbar/AuthNavbar";
 import Footer from "../../Components/Footer/Footer";
 import authImg from "@assets/Auth-img.png";
+import { useNavigate } from "react-router-dom";
 
 function AuthHome() {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/authpage");
+  };
+
+  const handleRegisterClick = () => {
+    navigate("/authpage");
+  };
+
   return (
     <>
       <div className="home-container">
@@ -18,17 +29,18 @@ function AuthHome() {
           </div>
 
           <div className="button-container">
-            <button className="register-button">Register</button>
-            <button className="login-button">Login</button>
+            <button className="register-button" onClick={handleRegisterClick}>Register</button>
+            <button className="login-button" onClick={handleLoginClick}>
+              Login
+            </button>
           </div>
         </div>
 
         <div className="auth-img">
           <img src={authImg} alt="" />
         </div>
-         {/* <Footer/> */}
+        {/* <Footer/> */}
       </div>
-     
     </>
   );
 }

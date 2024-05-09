@@ -18,10 +18,10 @@ function AuthNavbar() {
             <a className="nav-link" aria-current="page" href="#">
               Home
             </a>
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/authpage">
               Login
             </a>
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/authpage">
               Register
             </a>
           </div>
