@@ -1,0 +1,31 @@
+.common-user {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #AD88C6;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--brand-purple);
+}
+
+.password-toggle:hover{
+    color: var(--brand-dark);
+}

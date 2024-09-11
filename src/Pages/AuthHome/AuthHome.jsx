@@ -9,13 +9,13 @@ function AuthHome() {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    navigate("/authpage");
+    navigate("/authpage", { state: { boxType: "login" } }); // Passing login state
   };
 
   const handleRegisterClick = () => {
-    navigate("/authpage");
+    navigate("/authpage", { state: { boxType: "register" } }); // Passing register state
   };
-
+  
   return (
     <>
       <div className="home-container">

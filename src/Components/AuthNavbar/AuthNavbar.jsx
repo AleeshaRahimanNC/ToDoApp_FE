@@ -1,8 +1,19 @@
 import React from "react";
 import "./AuthNavbar.css";
 import ToDoIcon from "@assets/ToDo_icon.png";
+import { useNavigate } from "react-router-dom";
 
 function AuthNavbar() {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/authpage", { state: { boxType: "login" } });
+  };
+
+  const handleRegisterClick = () => {
+    navigate("/authpage", { state: { boxType: "register" } });
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong fixed-top">
       {/* <nav class="navbar navbar-expand-lg  fixed-top navbar-scrolled"> */}
@@ -18,12 +29,12 @@ function AuthNavbar() {
             <a className="nav-link" aria-current="page" href="#">
               Home
             </a>
-            <a className="nav-link" href="/authpage">
+            <button className="nav-link btn" onClick={handleLoginClick}>
               Login
-            </a>
-            <a className="nav-link" href="/authpage">
+            </button>
+            <button className="nav-link btn" onClick={handleRegisterClick}>
               Register
-            </a>
+            </button>
           </div>
         </div>
 
