@@ -29,3 +29,10 @@
 .password-toggle:hover{
     color: var(--brand-dark);
 }
+
+.error-message{
+  color: red; 
+  font-size: 0.875rem; 
+  margin-top: 0.25rem; 
+  display: block; 
+}

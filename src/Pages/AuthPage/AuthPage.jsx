@@ -18,15 +18,20 @@ function AuthPage() {
     }
   }, [location.state]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (formData) => {
     if (boxType === "login") {
       // Handle login action
+      console.log("Logging in user:", formData);
       navigate("/projectlistpage"); // Only navigate after successful login
     } else if (boxType === "register") {
-      // Handle register action (for now, just prevent login navigation)
-      console.log("Register action handled");
-      // Perform registration logic here (such as validation or API call)
-      // If registration is successful, navigate to the login or another page if needed
+      // Handle register action
+      if (formData) {
+        console.log("Registering user:", formData);
+        // Perform registration logic here (such as validation or API call)
+        alert("Registration successful!");
+        // Optionally, you can navigate to another page after successful registration
+        navigate("/LoginBox");
+      }
     }
   };
 
@@ -37,7 +42,6 @@ function AuthPage() {
   const switchToLoginBox = () => {
     setBoxType("login"); // Update the boxType state to "login"
   };
-
 
   return (
     <div className="login_container d-flex justify-content-center align-items-center">
@@ -51,25 +55,24 @@ function AuthPage() {
           {boxType === "login" ? "Login" : "Register"}
         </h3>
         <div className="auth_box">
-          {boxType === "login" ? <LoginBox /> : <RegisterBox />}
+          {boxType === "login" ? (
+            <LoginBox onSubmit={handleSubmit} />
+          ) : (
+            <RegisterBox onSubmit={handleSubmit} />
+          )}
 
-          <button className="auth_button" onClick={handleSubmit}>
+          <button className="auth_button" onClick={() => handleSubmit()}>
             {boxType === "login" ? "Login" : "Register"}
           </button>
 
           {boxType === "login" ? (
             <p>
-              New User?{" "}
-              <span onClick={switchToRegisterBox}>
-                Register Here
-              </span>
+              New User? <span onClick={switchToRegisterBox}>Register Here</span>
             </p>
           ) : (
             <p>
               Already have an account?{" "}
-              <span onClick={switchToLoginBox}>
-                Login Here
-              </span>
+              <span onClick={switchToLoginBox}>Login Here</span>
             </p>
           )}
         </div>
@@ -79,4 +82,3 @@ function AuthPage() {
 }
 
 export default AuthPage;
-          
